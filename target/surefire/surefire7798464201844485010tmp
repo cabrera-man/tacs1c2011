@@ -1,0 +1,33 @@
+#surefire
+#Tue May 10 00:46:09 ART 2011
+testClassesDirectory=C\:\\Users\\Owner\\workspace\\tacs1c2011\\target\\test-classes
+classPathUrl.4=C\:\\Users\\Owner\\.m2\\repository\\org\\restlet\\jse\\org.restlet.ext.simple\\2.0.0\\org.restlet.ext.simple-2.0.0.jar
+classPathUrl.3=C\:\\Users\\Owner\\.m2\\repository\\org\\osgi\\org.osgi.core\\4.0.0\\org.osgi.core-4.0.0.jar
+classPathUrl.2=C\:\\Users\\Owner\\.m2\\repository\\org\\restlet\\jse\\org.restlet\\2.0.0\\org.restlet-2.0.0.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\Owner\\workspace\\tacs1c2011\\target\\classes
+reportsDirectory=C\:\\Users\\Owner\\workspace\\tacs1c2011\\target\\surefire-reports
+classPathUrl.0=C\:\\Users\\Owner\\workspace\\tacs1c2011\\target\\test-classes
+dirscanner.0=directoryScannerOptions
+providerConfiguration=org.apache.maven.surefire.junit4.JUnit4Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\Owner\\workspace\\tacs1c2011\\src\\test\\java
+surefireClassPathUrl.1=C\:\\Users\\Owner\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.7.1\\surefire-api-2.7.1.jar
+surefireClassPathUrl.0=C\:\\Users\\Owner\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit4\\2.7.1\\surefire-junit4-2.7.1.jar
+report.2=org.apache.maven.surefire.report.XMLReporter
+useSystemClassLoader=true
+report.1=org.apache.maven.surefire.report.BriefFileReporter
+report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
+excludes0=**/*$*
+isTrimStackTrace=true
+dirscanner.0.params=C\:\\Users\\Owner\\workspace\\tacs1c2011\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+includes2=**/*TestCase.java
+enableAssertions=true
+includes1=**/*Test.java
+failIfNoTests=false
+includes0=**/Test*.java
+dirscanner.0.types=java.io.File|java.util.ArrayList|java.util.ArrayList
+classPathUrl.8=C\:\\Users\\Owner\\.m2\\repository\\junit\\junit\\4.8.2\\junit-4.8.2.jar
+classPathUrl.7=C\:\\Users\\Owner\\.m2\\repository\\org\\restlet\\jee\\org.restlet\\2.0.0\\org.restlet-2.0.0.jar
+childDelegation=false
+classPathUrl.6=C\:\\Users\\Owner\\.m2\\repository\\org\\restlet\\jee\\org.restlet.ext.servlet\\2.0.0\\org.restlet.ext.servlet-2.0.0.jar
+classPathUrl.5=C\:\\Users\\Owner\\.m2\\repository\\org\\simpleframework\\simple\\4.1.20\\simple-4.1.20.jar
