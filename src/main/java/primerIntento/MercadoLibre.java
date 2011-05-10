@@ -2,29 +2,29 @@ package primerIntento;
 
 import java.io.IOException;
 
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
+
+import org.restlet.data.MediaType;
 import org.restlet.resource.ClientResource;
 import org.restlet.resource.Get;
-import org.restlet.resource.ResourceException;
+//import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 public class MercadoLibre extends ServerResource{
 	
 	@Get
-	public String represent(){
+	public String represent() throws IOException{
 		
-		String retorno = "";
-		try {
-			retorno = new ClientResource("https://api.mercadolibre.com/sites/MLA/search?q=ipod").get().getText();
-		} catch (ResourceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		retorno = "esto deberia devolver" + retorno;
+		ClientResource resource = new ClientResource("https://api.mercadolibre.com/items/MLA110394682");  
+
+		String jsonString = resource.get(MediaType.APPLICATION_JSON).getText();
 		
-		return retorno;
+		JSONObject itemJson = (JSONObject) JSONSerializer.toJSON(jsonString);
+		
+		String title = itemJson.getString("title");
+		
+		return title;
 		
 	
 	}
