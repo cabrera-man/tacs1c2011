@@ -10,6 +10,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
 public class TestCliente {
+	
 
 	@Test
 	public void testGetApiML() throws ResourceException, IOException {
@@ -22,6 +23,7 @@ public class TestCliente {
 		String title = itemJson.getString("title");
 
 		assertTrue(title.equals(new String("Tambor Mapex Biack Panter")));
-
+	
 	}
+	
 }

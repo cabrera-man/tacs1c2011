@@ -5,7 +5,7 @@
 	<artifactId>ML4FB</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<dependencies>
+	<dependencies> 
 		<dependency>
 			<groupId>org.restlet.jse</groupId>
 			<artifactId>org.restlet</artifactId>
@@ -34,6 +34,11 @@
 			<version>2.4</version>
 			<classifier>jdk15</classifier>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.1</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -45,7 +50,7 @@
 		<snapshotRepository>
 			<id>ML4FB</id>
 			<name>RepositoryProxySnap</name>
-			<url>http://127.0.0.1:8086/ML4FB/</url>
+			<url>http://127.0.0.1:8081/ML4FB/</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>

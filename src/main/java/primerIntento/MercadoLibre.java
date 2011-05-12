@@ -2,31 +2,32 @@ package primerIntento;
 
 import java.io.IOException;
 
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
 
-import org.restlet.data.MediaType;
-import org.restlet.resource.ClientResource;
 import org.restlet.resource.Get;
-//import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
-public class MercadoLibre extends ServerResource{
+public class MercadoLibre extends ServerResource {
 	
 	@Get
-	public String represent() throws IOException{
+	public String representacion() throws ClientProtocolException, IOException{
 		
-		ClientResource resource = new ClientResource("https://api.mercadolibre.com/items/MLA110394682");  
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpGet httpget = new HttpGet("https://api.mercadolibre.com/items/MLA114618178");
 
-		String jsonString = resource.get(MediaType.APPLICATION_JSON).getText();
+        // Create a response handler
+        ResponseHandler<String> responseHandler = new BasicResponseHandler();
+        String responseBody = httpclient.execute(httpget, responseHandler);
+        
+        return responseBody;
+        
 		
-		JSONObject itemJson = (JSONObject) JSONSerializer.toJSON(jsonString);
-		
-		String title = itemJson.getString("title");
-		
-		return title;
-		
-	
 	}
+	
 
 }

@@ -16,7 +16,7 @@ public class FirstStepsApplication extends Application {
 
         // Defines only one route
         router.attach("/hello", HelloWorldResource.class);
-        router.attach("/bye", HelloWorldResource.class);
+        router.attach("/by", HelloWorldResource.class);
         router.attach("/ml", MercadoLibre.class);
 
 
