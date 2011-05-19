@@ -18,6 +18,7 @@ public class FirstStepsApplication extends Application {
         router.attach("/hello", HelloWorldResource.class);
         router.attach("/by", HelloWorldResource.class);
         router.attach("/ml", MercadoLibre.class);
+        router.attach("/mlClienteRest", MercadoLibreDeprecated.class);
 
 
         return router;
