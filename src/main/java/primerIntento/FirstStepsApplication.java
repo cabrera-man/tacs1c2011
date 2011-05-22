@@ -4,6 +4,7 @@ import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
 
+
 public class FirstStepsApplication extends Application {
 
     /**
@@ -11,6 +12,9 @@ public class FirstStepsApplication extends Application {
      */
     @Override
     public synchronized Restlet createInboundRoot() {
+    	
+    	Restlet categoriesML = new CategoriesML();
+    	
         // Create a router Restlet that routes each call to a new instance of HelloWorldResource.
         Router router = new Router(getContext());
 
@@ -19,6 +23,8 @@ public class FirstStepsApplication extends Application {
         router.attach("/by", HelloWorldResource.class);
         router.attach("/ml", MercadoLibre.class);
         router.attach("/mlClienteRest", MercadoLibreDeprecated.class);
+        
+        router.attach("/categories/{categoria}", categoriesML);
 
 
         return router;
