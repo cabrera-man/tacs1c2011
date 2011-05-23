@@ -13,22 +13,21 @@ import org.restlet.Response;
 import org.restlet.Restlet;
 import org.restlet.data.MediaType;
 
-public class CategoriesML extends Restlet {
-	@Override  
-    public void handle(Request request, Response response) {  
-        // Print the user name of the requested orders  
-		String categoria = (String) request.getAttributes().get("categoria");
+public class SitesML extends Restlet{
+	@Override
+	public void handle(Request request, Response response){
+		String sitio = (String) request.getAttributes().get("sitio");
 		
-		String message;
+		String mensaje = "";
+		
+		mensaje = cargarSitioJSON(sitio);
+		
+		response.setEntity(mensaje, MediaType.TEXT_PLAIN);
+	}
 
-		message = cargarCategoriaJSON(categoria);
-		
-        response.setEntity(message, MediaType.TEXT_PLAIN /*MediaType.APPLICATION_JSON*/); 
-}
-	
-	private String cargarCategoriaJSON(String categoria) {
+	private String cargarSitioJSON(String sitio) {
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet("https://api.mercadolibre.com/categories/" + categoria);
+		HttpGet httpget = new HttpGet("https://api.mercadolibre.com/sites/" + sitio);
 
         // Create a response handler
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
@@ -46,4 +45,5 @@ public class CategoriesML extends Restlet {
         return responseBody;
 	}
 	
+
 }

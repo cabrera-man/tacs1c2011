@@ -14,6 +14,7 @@ public class FirstStepsApplication extends Application {
     public synchronized Restlet createInboundRoot() {
     	
     	Restlet categoriesML = new CategoriesML();
+    	Restlet sitesML = new SitesML();
     	
         // Create a router Restlet that routes each call to a new instance of HelloWorldResource.
         Router router = new Router(getContext());
@@ -25,6 +26,7 @@ public class FirstStepsApplication extends Application {
         router.attach("/mlClienteRest", MercadoLibreDeprecated.class);
         
         router.attach("/categories/{categoria}", categoriesML);
+        router.attach("/sites/{sitio}", sitesML);
 
 
         return router;

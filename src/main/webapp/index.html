@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>img{ height: 100px; float: left; }</style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ <div id="images">
+ <ul id="main_categories">
+ </ul>
+
+</div>
+<script>
+
+function cargarCategoria(category_id){
+$.getJSON("ml/categories/" + category_id,
+  function(data) {
+	var nuevo_ul = $("<ul></ul>");
+	$.each(data.children_categories, function(i, categoria){
+		lista_item = creadorItem(categoria);
+		nuevo_ul.append(lista_item);
+	}
+	);
+	
+	$("#main_categories li#"+category_id).attr("cargado", "yes");
+	$("#main_categories li#"+category_id).append(nuevo_ul);
+	
+    });
+}; //fin cargarCategoria()
+
+function cargarCategoriasPrincipal(){
+	$.getJSON("ml/sites/MLA",
+		function(data) {
+			$.each(data.categories, function(i, categoria){
+				lista_item = creadorItem(categoria);
+				$("#main_categories").append(lista_item);
+			}
+			);
+		}
+		);
+}; // fin cargarCategoriasPrincipal()
+
+function creadorItem(categoria){
+	lista_item = $("<li></li>");
+	lista_item.attr("id", categoria.id);
+	
+	var category_id = categoria.id;
+	lista_item.click(function(){
+		
+		if( $("#"+category_id).attr("cargado") == "yes")
+			return false;
+		cargarCategoria(category_id)
+	});
+	
+	lista_item.append(categoria.name);
+	
+	return lista_item;
+}
+
+cargarCategoriasPrincipal();
+//agregarSubCategorias();
+</script>
+
+</body>
+</html>
