@@ -46,11 +46,4 @@
 			<url>http://maven.restlet.org</url>
 		</repository>
 	</repositories>
-		<distributionManagement>
-		<snapshotRepository>
-			<id>ML4FB</id>
-			<name>RepositoryProxySnap</name>
-			<url>http://127.0.0.1:8080/ML4FB/</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
