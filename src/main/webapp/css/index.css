@@ -1,0 +1,13 @@
+/******** UTN FRBA - TACS 1ºC 2011
+********* ML4FB - GRUPO Nº1
+*********
+*********/
+
+li span {
+color: #0000FF;
+cursor: pointer;
+}
+
+li span:hover {
+text-decoration: underline;
+}
