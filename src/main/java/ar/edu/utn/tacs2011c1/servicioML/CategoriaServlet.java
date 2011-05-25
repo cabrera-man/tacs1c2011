@@ -1,18 +1,12 @@
-package ar.edu.utn.tacs2011c1.primerIntento;
+package ar.edu.utn.tacs2011c1.servicioML;
 
-import java.io.*;
-import javax.servlet.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-import net.sf.json.util.JSONTokener;
-
-import org.restlet.data.MediaType;
-import org.restlet.resource.ClientResource;
-import org.restlet.resource.ResourceException;
 
 public class CategoriaServlet extends HttpServlet {
 

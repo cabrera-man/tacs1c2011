@@ -13,7 +13,7 @@
       <init-param>
             <!-- Application class name -->
             <param-name>org.restlet.application</param-name>
-            <param-value>ar.edu.utn.tacs2011c1.primerIntento.FirstStepsApplication</param-value>
+            <param-value>ar.edu.utn.tacs2011c1.servicioML.FirstStepsApplication</param-value>
       </init-param>
    </servlet>  
   

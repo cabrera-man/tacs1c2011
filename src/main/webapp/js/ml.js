@@ -3,7 +3,6 @@
 *********
 *********/
 
-
 function cargarCategoria(category_id){
 $.getJSON("ml/categories/" + category_id,
   function(data) {
@@ -52,11 +51,6 @@ function creadorItem(categoria){
 	
 	return lista_item;
 }// fin creadorItem()
-
-function mostrarOcultarSubCategoria(category_id){
-	
-	$("#" + category_id + " ul").slideToggle();
-}
 
 
 /******* Inicializo el .html y le digo que cargue

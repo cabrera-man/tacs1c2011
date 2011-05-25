@@ -1,4 +1,4 @@
-package ar.edu.utn.tacs2011c1.primerIntento;
+package ar.edu.utn.tacs2011c1.servicioML;
 
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
