@@ -55,7 +55,7 @@ function creadorItem(categoria){
 
 /******* Inicializo el .html y le digo que cargue
 		las primeras categorias
-		*/
+		**/
 $(document).ready(function(){
 	cargarCategoriasPrincipal();
 	});
