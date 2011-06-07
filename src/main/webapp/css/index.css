@@ -1,9 +1,7 @@
 /*******************************************************************************
  * ****** UTN FRBA - TACS 1ºC 2011 ******** ML4FB - GRUPO Nº1 ********
  ******************************************************************************/
-/*div{
-	border: 1px solid red;
-}*/
+
 
 body{
 color: #333333;
@@ -59,6 +57,7 @@ ul#listaBusqueda li{
 	clear:both;
 	border-top: 1px solid #AAA;
 	padding-top: 10px;
+	height: 110px;
 }
 ul#listaBusqueda li:first-child{
 	border: 0px;

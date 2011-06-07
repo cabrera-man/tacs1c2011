@@ -1,9 +1,18 @@
 /*******************************************************************************
  * ****** UTN FRBA - TACS 1ºC 2011 ******** ML4FB - GRUPO Nº1 ********
  ******************************************************************************/
-
-function cargarCategoria(category_id) {
-	var URL = $("https://api.mercadolibre.com/categories/" + category_id).selector;
+ 
+/**************************
+Funcionalidad de cargar el arbol
+de categorias dinamicamente
+**************************/
+function cargarCategoria(category_id, liCategoria, $) {
+	//Si no me pasan jQuery por parametro lo configuro por default
+	if( $ === undefined){
+		$ = jQuery;
+	}
+	var liDestino = liCategoria;
+	var URL = "https://api.mercadolibre.com/categories/" + category_id;
 	$.ajax({
 		type : "GET",
 		url : URL,
@@ -12,13 +21,14 @@ function cargarCategoria(category_id) {
 		success : function(data, status) {
 			var nuevo_ul = $("<ul></ul>");
 			nuevo_ul.hide();
-			$.each(data[2].children_categories, function(i, categoria) {
+			appendarSubCategorias(data[2].children_categories, nuevo_ul);
+			/*$.each(data[2].children_categories, function(i, categoria) {
 				lista_item = creadorItem(categoria);
 				nuevo_ul.append(lista_item);
-			});
+			});*/
 
-			$("#main_categories li#" + category_id).attr("cargado", "yes");
-			$("#main_categories li#" + category_id).append(nuevo_ul);
+			liDestino.attr("cargado", "yes");
+			liDestino.append(nuevo_ul);
 			nuevo_ul.slideDown();
 		},
 		beforeSend: logoCargandoShowHide,
@@ -26,7 +36,22 @@ function cargarCategoria(category_id) {
 	});
 }; // fin cargarCategoria()
 
-function cargarCategoriasPrincipal() {
+//Esta función se volvió necesaria separarla para poder
+//testear unitariamente, ya que esto se hacia dentro de otra función
+//y no habia manera de saber su resultado
+function appendarSubCategorias(children_categories, ulDestino){
+	$.each(children_categories, function(i, categoria){
+		lista_item = creadorItem(categoria);
+		ulDestino.append(lista_item);
+		});
+};
+
+function cargarCategoriasPrincipal(ulDondeCargar, $) {
+	//Si no me pasan jQuery por parametro lo configuro por default
+	if( $ === undefined){
+		$ = jQuery;
+	}
+	var ulDestino = ulDondeCargar;
 	var URL = "https://api.mercadolibre.com/sites/MLA";
 	$.ajax({
 		type : "GET",
@@ -36,7 +61,7 @@ function cargarCategoriasPrincipal() {
 		success : function(data, status) {
 			$.each(data[2].categories, function(i, categoria) {
 				lista_item = creadorItem(categoria);
-				$("#main_categories").append(lista_item);
+				ulDestino.append(lista_item);
 			});
 		},
 		beforeSend: logoCargandoShowHide,
@@ -45,24 +70,26 @@ function cargarCategoriasPrincipal() {
 }; // fin cargarCategoriasPrincipal()
 
 function creadorItem(categoria) {
-	lista_item = $("<li></li>");
+	var lista_item = $("<li></li>");
 	lista_item.attr("id", categoria.id);
 
 	var category_id = categoria.id;
-	lista_item.click(function() {
+	
+	nombreCategoria = $("<span>" + categoria.name + "</span>");
+	nombreCategoria.click( 
+				function() {
+					if(lista_item.attr("cargado") == "yes"){
+						return true;
+					}
+					cargarCategoria(category_id, lista_item);
+				});
 
-		if ($("#" + category_id).attr("cargado") == "yes") {
-			return true;
-		}
-		cargarCategoria(category_id)
-	});
-
-	lista_item.append($("<span>" + categoria.name + "</span>"));
+	lista_item.append(nombreCategoria);
 	
 	linkMostrar = $("<span>Ver</span>");
 	linkMostrar.addClass("linkMostrar");
 	linkMostrar.click(function(){
-		buscarArticuloXString("category=" + category_id);
+		buscarArticuloXString("category=" + category_id, $("#listaBusqueda"));
 	});
 	
 	lista_item.append(linkMostrar);
@@ -70,15 +97,21 @@ function creadorItem(categoria) {
 	return lista_item;
 }// fin creadorItem()
 
-/****Animación de espera*/
+/*********
+Animación de espera
+*********/
 function logoCargandoShowHide(){
 	$("#logoCargando").fadeToggle();
 }
 
-/****accion cuando se realiza una busqueda
-*/
-
-function buscarArticuloXString(strBusqueda, ulDondeCargar){
+/***************************************
+Funcionalidad de Busqueda
+***************************************/
+function buscarArticuloXString(strBusqueda, ulDondeCargar, $){
+	//Si no me pasan jQuery por parametro lo configuro por default
+	if( $ === undefined){
+		$ = jQuery;
+	}
 	var URL = "https://api.mercadolibre.com/sites/MLA/search?" + strBusqueda;
 	var ulFinal = ulDondeCargar;
 	$.ajax({
@@ -87,16 +120,16 @@ function buscarArticuloXString(strBusqueda, ulDondeCargar){
 		timeout : 10000,
 		dataType : "jsonp",
 		success : function(data, status) {
-			ulResultados = $("#listaBusqueda");
-			ulResultados.fadeToggle(function(){
-				$("#listaBusqueda").empty();
+			
+			ulFinal.empty();
+			ulFinal.hide();
 
-				$.each(data[2].results, function(i, resultado) {
-					lista_item = crearElementoResultado(resultado);
-					$("#listaBusqueda").append(lista_item);
-				});
+			$.each(data[2].results, function(i, resultado) {
+				lista_item = crearElementoResultado(resultado);
+				ulFinal.append(lista_item);
 			});
-			ulResultados.fadeToggle();
+			
+			ulFinal.fadeToggle();
 		},
 		beforeSend: logoCargandoShowHide,
 		complete: logoCargandoShowHide
@@ -118,16 +151,3 @@ function crearElementoResultado(resultado){
 }
 
 
-
-
-/**
- * ***** Inicializo el .html y le digo que cargue las primeras categorias
- */
-$(document).ready(function() {
-	cargarCategoriasPrincipal();
-	
-	$("#formBuscar").submit( function(){
-			buscarArticuloXString("q=" + $("#txtBuscar").val());
-			return false;
-	});
-});
