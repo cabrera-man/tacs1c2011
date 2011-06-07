@@ -1,7 +1,14 @@
-/******** UTN FRBA - TACS 1ºC 2011
-********* ML4FB - GRUPO Nº1
-*********
-*********/
+/*******************************************************************************
+ * ****** UTN FRBA - TACS 1ºC 2011 ******** ML4FB - GRUPO Nº1 ********
+ ******************************************************************************/
+/*div{
+	border: 1px solid red;
+}*/
+
+body{
+color: #333333;
+font-family: sans-serif;
+}
 
 li span {
 color: #0000FF;
@@ -10,4 +17,54 @@ cursor: pointer;
 
 li span:hover {
 text-decoration: underline;
+}
+
+#logoCargando {
+	display: none;
+	position: fixed;
+	top: 10px;
+	left: 400px;
+	
+	margin: 0px auto;
+	
+	background: #FFF;
+}
+
+#divisionIzquierda{
+	float:left;
+	width: 500px;
+	overflow: visible;
+}
+
+li span.linkMostrar{
+	font-size: 10px;
+	margin-left: 10px;
+}
+
+/*******************************************
+Sección de busquedas
+********************************************/
+
+#divisionDerecha {
+	float:left;
+	width: 500px;
+	color: #555;
+}
+
+ul#listaBusqueda{
+	list-style: none;
+}
+
+ul#listaBusqueda li{
+	clear:both;
+	border-top: 1px solid #AAA;
+	padding-top: 10px;
+}
+ul#listaBusqueda li:first-child{
+	border: 0px;
+} 
+
+ul#listaBusqueda li img{
+	float: left;
+	padding: 5px;
 }
