@@ -86,7 +86,7 @@ function creadorItem(categoria) {
 
 	lista_item.append(nombreCategoria);
 	
-	linkMostrar = $("<span>Ver</span>");
+	linkMostrar = $("<span style=\"color: #FFCC00\">Ver</span>");
 	linkMostrar.addClass("linkMostrar");
 	linkMostrar.click(function(){
 		buscarArticuloXString("category=" + category_id, $("#listaBusqueda"));
