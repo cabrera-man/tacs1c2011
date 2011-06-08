@@ -1,15 +1,17 @@
 /*******************************************************************************
- * ****** UTN FRBA - TACS 1ºC 2011 ******** ML4FB - GRUPO Nº1 ********
+ * ****** UTN FRBA - TACS 1C 2011 ******** ML4FB - GRUPO N1 ********
  ******************************************************************************/
+/*div{
+	border: 1px solid red;
+}*/
 
-
-body{
-color: #333333;
-font-family: sans-serif;
+body { 
+	background-color: #222;
+	color: #ABA;
+	font:14px/25px Verdana, Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
 
 li span {
-color: #0000FF;
 cursor: pointer;
 }
 
@@ -18,14 +20,12 @@ text-decoration: underline;
 }
 
 #logoCargando {
+	background-color: #222;
 	display: none;
 	position: fixed;
 	top: 10px;
 	left: 400px;
-	
 	margin: 0px auto;
-	
-	background: #FFF;
 }
 
 #divisionIzquierda{
@@ -40,13 +40,13 @@ li span.linkMostrar{
 }
 
 /*******************************************
-Sección de busquedas
+Seccion de busquedas
 ********************************************/
 
 #divisionDerecha {
 	float:left;
 	width: 500px;
-	color: #555;
+	color: #8AA;
 }
 
 ul#listaBusqueda{
@@ -57,7 +57,6 @@ ul#listaBusqueda li{
 	clear:both;
 	border-top: 1px solid #AAA;
 	padding-top: 10px;
-	height: 110px;
 }
 ul#listaBusqueda li:first-child{
 	border: 0px;
@@ -66,4 +65,34 @@ ul#listaBusqueda li:first-child{
 ul#listaBusqueda li img{
 	float: left;
 	padding: 5px;
+}
+
+.btn {
+	background-repeat: repeat-x;
+	background-color:#444;
+	border: 1px solid #FFCC00; 
+	cursor:pointer;
+	overflow: visible;
+	padding: 3px 15px;
+	color:#FFF;
+	font-family: inherit;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px; 
+	background-position:0 0px;
+	font-size: 12px;
+	height: 29px;
+	line-height:20px;
+	font-weight: bold;
+}
+
+.input{
+	border: 1px solid #FFCC00; 
+	padding:5px;
+	margin:5px 0;
+	color:#fff;
+	background-color:#444;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
