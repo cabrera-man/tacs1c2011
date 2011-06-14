@@ -26,8 +26,5 @@ public class MercadoLibre extends ServerResource {
         
         return responseBody;
         
-		
 	}
-	
-
 }

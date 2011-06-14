@@ -6,8 +6,7 @@
 }*/
 
 body { 
-	background-color: #222;
-	color: #ABA;
+	background-color: #FFFFF;
 	font:14px/25px Verdana, Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
 
@@ -20,7 +19,7 @@ text-decoration: underline;
 }
 
 #logoCargando {
-	background-color: #222;
+	background-color: #FAFAFA;
 	display: none;
 	position: fixed;
 	top: 10px;
@@ -32,6 +31,10 @@ text-decoration: underline;
 	float:left;
 	width: 500px;
 	overflow: visible;
+	font-size: 14px;
+		background-color: #FAFAFA; 
+	
+	
 }
 
 li span.linkMostrar{
@@ -43,17 +46,29 @@ li span.linkMostrar{
 Seccion de busquedas
 ********************************************/
 
+
 #divisionDerecha {
 	float:left;
-	width: 500px;
-	color: #8AA;
+	width: 510px;
+	font-size: 12px;
+	style="position:absolute; 
+	z-index:3; 
+	visibility: visible; 
+	background-color: #E6E6E6; 
+	clip: rect(1 auto auto 3);">
+</div>
 }
 
+#formBuscar{
+	margin-left: 50px;
+}
 ul#listaBusqueda{
 	list-style: none;
+	
 }
 
 ul#listaBusqueda li{
+	
 	clear:both;
 	border-top: 1px solid #AAA;
 	padding-top: 10px;
@@ -69,30 +84,35 @@ ul#listaBusqueda li img{
 
 .btn {
 	background-repeat: repeat-x;
-	background-color:#444;
-	border: 1px solid #FFCC00; 
+	border: 1px solid; 
 	cursor:pointer;
 	overflow: visible;
 	padding: 3px 15px;
-	color:#FFF;
 	font-family: inherit;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px; 
-	background-position:0 0px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px; 
 	font-size: 12px;
 	height: 29px;
 	line-height:20px;
 	font-weight: bold;
+	background: transparent;
 }
 
 .input{
-	border: 1px solid #FFCC00; 
+	border: 1px solid; 
 	padding:5px;
 	margin:5px 0;
-	color:#fff;
-	background-color:#444;
 	border-radius: 5px;
-	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+	type: "text";
+	background: transparent;
+	outline: none;
+	position: relative;
+	z-index: 3
+}
+
+#signInDiv{
+		width: 1010px;
+	background-color: #E6E6E6; 		
 }

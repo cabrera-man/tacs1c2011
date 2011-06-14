@@ -1,5 +1,5 @@
 /*******************************************************************************
- * ****** UTN FRBA - TACS 1ºC 2011 ******** ML4FB - GRUPO Nº1 ********
+ * ****** UTN FRBA - TACS 1C 2011 ******** ML4FB - GRUPO N1 ********
  ******************************************************************************/
  
 /**************************
@@ -36,8 +36,8 @@ function cargarCategoria(category_id, liCategoria, $) {
 	});
 }; // fin cargarCategoria()
 
-//Esta función se volvió necesaria separarla para poder
-//testear unitariamente, ya que esto se hacia dentro de otra función
+//Esta funcin se volvio necesaria separarla para poder
+//testear unitariamente, ya que esto se hacia dentro de otra funcion
 //y no habia manera de saber su resultado
 function appendarSubCategorias(children_categories, ulDestino){
 	$.each(children_categories, function(i, categoria){
@@ -86,7 +86,7 @@ function creadorItem(categoria) {
 
 	lista_item.append(nombreCategoria);
 	
-	linkMostrar = $("<span style=\"color: #FFCC00\">Ver</span>");
+	linkMostrar = $("<span style=\"	font-weight: bold;\">Ver</span>");
 	linkMostrar.addClass("linkMostrar");
 	linkMostrar.click(function(){
 		buscarArticuloXString("category=" + category_id, $("#listaBusqueda"));
@@ -98,7 +98,7 @@ function creadorItem(categoria) {
 }// fin creadorItem()
 
 /*********
-Animación de espera
+Animacion de espera
 *********/
 function logoCargandoShowHide(){
 	$("#logoCargando").fadeToggle();
@@ -149,5 +149,3 @@ function crearElementoResultado(resultado){
 	
 	return nuevoItem;
 }
-
-
