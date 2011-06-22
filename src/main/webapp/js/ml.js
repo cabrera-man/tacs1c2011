@@ -147,5 +147,69 @@ function crearElementoResultado(resultado){
 	nuevoItem.append(imgMiniatura);
 	nuevoItem.append(resultado.title);
 	
+	agregarDiv = $("<div></div>");
+	agregarSpan = $("<span><b>Agregar</b></span>");
+	agregarSpan.attr("class","linkMostrar");
+	$(agregarSpan).click(function(){addWish(resultado.title, resultado.thumbnail, resultado.id)})
+
+	agregarDiv.append(agregarSpan);
+	
+	nuevoItem.append(agregarDiv);
+	
 	return nuevoItem;
 }
+
+function addWish(title, imgURL, id){
+	
+		if(noEsItemRepetido(id)){
+			newWish = $("<li></li>");
+			
+
+			imageURL = $("<img />");
+			imageURL.attr("src", imgURL);
+			newWish.append(imageURL);
+			newWish.append(title);
+			newWish.attr("id", id);
+			
+			agregarDiv = $("<div></div>");
+			agregarSpan = $("<span><b>Quitar</b></span>");
+			agregarSpan.attr("class","linkMostrar");
+			$(agregarSpan).click(function(){doQuitarWish($(this))})
+			
+			agregarDiv.append(agregarSpan);
+			
+			$(newWish).append(agregarDiv);
+			$(wishList).append(newWish);
+			
+			$.ajax({
+				url: "saveWish",
+				type: "POST",
+				data: {title: title, itemId: id, imgURL: imgURL}
+			});
+		}
+}		
+
+function doQuitarWish(wish){
+	var itemIdParam = $(wish.parent().parent())[0].id;
+	$.ajax({
+		url: "removeWish",
+		type: "POST",
+		data: {itemId: itemIdParam}
+	});
+	wish.parent().parent().remove();
+	
+}
+
+function noEsItemRepetido(id) {
+	var wishes = $("#wishList");
+	var r = true;
+	
+	$.each(wishes[0].children, function(i, wish){
+		if(wish.id == id){
+			r = false;
+		}
+	});
+	return r;
+}
+
+
