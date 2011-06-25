@@ -150,7 +150,7 @@ function crearElementoResultado(resultado){
 	agregarDiv = $("<div></div>");
 	agregarSpan = $("<span><b>Agregar</b></span>");
 	agregarSpan.attr("class","linkMostrar");
-	$(agregarSpan).click(function(){addWish(resultado.title, resultado.thumbnail, resultado.id)})
+	$(agregarSpan).click(function(){addWishWithAJAX(resultado.title, resultado.thumbnail, resultado.id)})
 
 	agregarDiv.append(agregarSpan);
 	
@@ -159,7 +159,30 @@ function crearElementoResultado(resultado){
 	return nuevoItem;
 }
 
-function addWish(title, imgURL, id){
+function addWishOnlyToUlTag(title, imgURL, id){
+	
+	if(noEsItemRepetido(id)){
+		newWish = $("<li></li>");
+		
+
+		imageURL = $("<img />");
+		imageURL.attr("src", imgURL);
+		newWish.append(imageURL);
+		newWish.append(title);
+		newWish.attr("id", id);
+		
+		agregarDiv = $("<div></div>");
+		agregarSpan = $("<span><b>Quitar</b></span>");
+		agregarSpan.attr("class","linkMostrar");
+		$(agregarSpan).click(function(){doQuitarWish($(this))})
+		
+		agregarDiv.append(agregarSpan);
+		newWish.append(agregarDiv);
+		$("#wishList").append(newWish);
+	}		
+}		
+
+function addWishWithAJAX(title, imgURL, id){
 	
 		if(noEsItemRepetido(id)){
 			newWish = $("<li></li>");
@@ -177,7 +200,6 @@ function addWish(title, imgURL, id){
 			$(agregarSpan).click(function(){doQuitarWish($(this))})
 			
 			agregarDiv.append(agregarSpan);
-			
 			newWish.append(agregarDiv);
 			$("#wishList").append(newWish);
 			

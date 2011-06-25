@@ -61,7 +61,7 @@
 					%>
 								
 							<script type="text/javascript">
-								addWish("<%= w.getTitle()%>","<%= w.getImgURL()%>", "<%= w.getItemId()%>");
+							addWishOnlyToUlTag("<%= w.getTitle()%>","<%= w.getImgURL()%>", "<%= w.getItemId()%>");
 							</script>
 					<%
 			        		}
