@@ -20,14 +20,24 @@
 		<servlet-name>RestletServlet</servlet-name>
 		<url-pattern>/ml/*</url-pattern>
 	</servlet-mapping>
-		<servlet>
-		<servlet-name>addWish</servlet-name>
-		<servlet-class>ar.edu.utn.tacs2011c1.servicioML.AddWishServlet</servlet-class>
+	<servlet>
+		<servlet-name>saveWish</servlet-name>
+		<servlet-class>ar.edu.utn.tacs2011c1.servicioML.SaveWishServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>addWish</servlet-name>
-		<url-pattern>/addWish</url-pattern>
+		<servlet-name>saveWish</servlet-name>
+		<url-pattern>/saveWish</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>removeWish</servlet-name>
+		<servlet-class>ar.edu.utn.tacs2011c1.servicioML.RemoveWishServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>removeWish</servlet-name>
+		<url-pattern>/removeWish</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>
    		index.jsp</welcome-file>

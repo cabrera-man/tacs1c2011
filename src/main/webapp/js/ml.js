@@ -178,8 +178,8 @@ function addWish(title, imgURL, id){
 			
 			agregarDiv.append(agregarSpan);
 			
-			$(newWish).append(agregarDiv);
-			$(wishList).append(newWish);
+			newWish.append(agregarDiv);
+			$("#wishList").append(newWish);
 			
 			$.ajax({
 				url: "saveWish",

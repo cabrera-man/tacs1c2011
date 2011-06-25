@@ -70,7 +70,7 @@
 					%>
 					
 					<script type="text/javascript">
-							$(divisionWishList).append(<p>Empty WishList</p>);<script>
+							$("#divisionWishList").append("<p>Empty WishList</p>");</script>
 					<%
 					    }
     					pm.close();

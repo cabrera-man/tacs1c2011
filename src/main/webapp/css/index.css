@@ -65,7 +65,10 @@ Seccion de busquedas
 ul#listaBusqueda{
 	list-style: none;
 	
+	
 }
+
+
 
 ul#listaBusqueda li{
 	
@@ -78,6 +81,25 @@ ul#listaBusqueda li:first-child{
 } 
 
 ul#listaBusqueda li img{
+	float: left;
+	padding: 5px;
+}
+
+ul#wishList{
+	list-style: none;
+	
+}
+ul#wishList li{
+	color: #2200C1;
+	clear:both;
+	border-top: 1px solid #AAA;
+	padding-top: 10px;
+}
+ul#wishList li:first-child{
+	border: 0px;
+} 
+
+ul#wishList li img{
 	float: left;
 	padding: 5px;
 }
@@ -99,6 +121,19 @@ ul#listaBusqueda li img{
 	background: transparent;
 }
 
+.btnAdd {
+	background-repeat: repeat-x;
+	border: 1px solid; 
+	cursor:pointer;
+	overflow: visible;
+	font-family: inherit;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px; 
+	font-size: 9px;
+	background: transparent;
+}
+
 .input{
 	border: 1px solid; 
 	padding:5px;
@@ -115,4 +150,112 @@ ul#listaBusqueda li img{
 #signInDiv{
 		width: 1010px;
 	background-color: #E6E6E6; 		
+}
+
+#divisionWishList{
+	background-color: #111111; 	
+		float:left;
+	width: 500px;
+	}
+	
+ul.tabs {
+
+margin: 0;
+
+padding: 0;
+
+float: left;
+
+list-style: none;
+
+height: 32px; /*--Define el ancho de las tabs--*/
+
+border-bottom: 1px solid #999;
+
+border-left: 1px solid #999;
+
+width: 100%;
+
+}
+
+ul.tabs li {
+
+float: left;
+
+margin: 0;
+
+padding: 0;
+
+height: 31px; /*--Sustrae 1px de la altura de la lista desordenada--*/
+
+line-height: 31px; /*--Alineamiento vertical del texto dentro de la tabla--*/
+
+border: 1px solid #999;
+
+border-left: none;
+
+margin-bottom: -1px; /*--Desplaza los item de la lista abajo 1px--*/
+
+overflow: hidden;
+
+position: relative;
+
+background: #e0e0e0;
+
+}
+
+ul.tabs li a {
+
+text-decoration: none;
+
+color: #000;
+
+display: block;
+
+font-size: 1.2em;
+
+padding: 0 20px;
+
+border: 1px solid #fff;
+
+<a rel="nofollow" title="outline" href=" http://www.cssblog.es/css-la-propiedad-outline/">outline</a>: none;
+
+}
+
+ul.tabs li a:hover {
+
+background: #ccc;
+
+}
+
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Estate seguro de que a la tab activa no se le aplicarán estas propiedades hover--*/
+
+background: #fff;
+
+border-bottom: 1px solid #fff; /*--Esto hace que la tab activa esté conectada con respecto a su contenido--*/
+
+}
+
+.tab_container {
+
+border: 1px solid #999;
+
+border-top: none;
+
+overflow: hidden;
+
+clear: both;
+
+float: left; width: 100%;
+
+background: #fff;
+
+}
+
+.tab_content {
+
+padding: 20px;
+
+font-size: 1.2em;
+
 }
